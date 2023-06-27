@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.second {
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.second .alll {
+  padding: 2rem 0;
+  border-radius: 5px;
+  width: 50%;
+  background-color: white;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+.second .alll h1 {
+  text-align: center;
+  margin: 1rem 0;
+}
+.second .alll input {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px 0 10px 20px;
+  outline: none;
+  border-radius: 5px;
+}
+.second .alll label {
+  font-size: 1.2rem;
+}
+.second .alll select {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px 0 10px 20px;
+  outline: none;
+  border-radius: 5px;
+}
+    .second .alll .submit {
+        width: 30%;
+        background-color: green;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .second .alll .back {
+        width: 30%;
+        background-color: red;
+        padding: 12px 5rem;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        text-decoration: none;
+    }
+
+    .second .alll .list {
+        width: 10%;
+        background-color: blue;
+        padding: 12px 4rem;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        text-decoration: none;
+    }
+}/*# sourceMappingURL=sale.css.map */

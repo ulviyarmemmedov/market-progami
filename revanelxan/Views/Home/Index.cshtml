@@ -1,0 +1,31 @@
+﻿@using revanelxan.VM;
+@model IndexVm;
+
+
+@section css{
+    <link rel="stylesheet" href="~/front/css/index.css">
+}
+<div class="text">
+    <h1>Market</h1>
+</div>
+
+<div class="first" style="background-image:url(@Model.Picture.PictureName);" >
+
+    <div class="container">
+        <div class="row all">
+            <div class="col-md-3 add">
+                <a href="@Url.Action("Add","Add")">Add Product</a>
+            </div>
+            <div class="col-md-3 sale">
+                <a href="@Url.Action("sale","sale")">Sale Product</a>
+            </div>
+            <div class="col-md-3 stoce">
+                <a href="@Url.Action("stoce","home")">Show Stoce</a>
+            </div>
+            <div class="col-md-3 ern">
+                <a href="@Url.Action("ern","home")">Show Erned Money</a>
+            </div>
+        </div>
+    </div>
+    <a href="@Url.Action("signout","home")" class="sign">Sign Out</a>
+</div>

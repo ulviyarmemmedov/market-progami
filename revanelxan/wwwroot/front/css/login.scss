@@ -1,0 +1,77 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login{
+       
+        display: flex;
+        align-items: center;
+         
+     
+        height: 100vh;
+      .bir{
+        h1{
+             text-align: center;
+        }
+             margin: 0 auto;
+              
+             width: 50%;
+             padding: 80px 60px;
+               box-shadow: 0 19px 38px rgba(235, 42, 42, 0.3), 0 15px 12px rgba(0,0,0,0.22);
+               form{
+                select{
+                    width: 100%;
+                    padding: 8px 5px;
+                    margin: 5px 0;
+                    outline: none;
+                }
+                   width: 100%;
+                   input{
+                    width: 100%;
+                     padding: 8px 5px;
+                     margin: 5px 0;
+                     outline: none;
+                   }
+                   .submit{
+                    width: 33%;
+                    color: white;
+                    background-color: green;
+                    border: none;
+                    transition: .4s;
+                    border-radius: 5px;
+                    &:hover{
+                          background-color: rgb(0, 180, 0);
+                    }
+                   }
+                   
+                   
+                   a{
+                      padding: 10px 40px;
+                      border: none;
+                      margin-left: 8px;
+                      border-radius: 5px;
+                        transition: .4s;
+                   }
+                   .list{
+                        background-color: blue;
+                        color: white;
+                        text-decoration: none;
+                        &:hover{
+                             background-color: rgb(55, 55, 248);
+                        }
+                   }
+                   .back{
+                       background-color: red;
+                        color: white;
+                         text-decoration: none;
+                         &:hover{
+                            background-color: rgb(255, 68, 68);
+                        }
+                   }
+                
+               }
+      }
+}

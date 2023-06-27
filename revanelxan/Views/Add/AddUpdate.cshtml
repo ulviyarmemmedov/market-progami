@@ -1,0 +1,50 @@
+﻿@using revanelxan.VM;
+@model AddUpdateVm;
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@section css{
+    <link rel="stylesheet" href="~/front/css/Add.css">
+}
+<div class="second" style="background-image: url(@Model.Picture.PictureName);">
+    <div class="alll">
+        <h1>Update Product</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="@Url.Action("Addupdate","Add",new{id=Model.productget.Id})" method="post">
+                        <label for="name">Product Name</label>
+                        <input type="text" id="name" asp-for="@Model.productpost.Name" value="@Model.productget.Name">
+                        <label for="catogory">Product Category</label>
+
+                           <select id="catogory" asp-for="@Model.productpost.CategoryID" >
+                            <option value="@Model.singlecategory.Id" disabled selected>@Model.singlecategory.Name</option>
+                        @foreach (var item in Model.Categories)
+                        {
+                         
+                               
+                                <option value="@item.Id">@item.Name</option>
+                           
+                        }
+                        </select>
+
+                        <label for="Barcode">Barcode</label>
+                        <input type="number" id="Barcode " asp-for="@Model.productpost.Barcode" value="@Model.productget.Barcode">
+                        <label for="Cost">Qiymət</label>
+                        <input type="number" id="Cost" asp-for="@Model.productpost.Cost"value="@Model.productget.Cost">
+                        <label for="count">Say</label>
+                        <input type="number" id="count" asp-for="@Model.productpost.Count" value="@Model.productget.Count">
+                        <label for="end">Enttime</label>
+                        <input type="date" id="end" asp-for="@Model.productpost.EndTime" value="@Model.productget.EndTime">
+                        <input type="submit" value="Update" class="submit">
+                        
+                        <a href="@Url.Action("Addlist","Add")" class="back">Back</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

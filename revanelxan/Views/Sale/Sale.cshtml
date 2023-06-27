@@ -1,0 +1,150 @@
+﻿@using revanelxan.VM;
+@section css{
+    <link rel="stylesheet" href="~/front/css/sale.css">
+}
+@model SaleVm;
+<div class="second" id="second" style="background-image: url(@Model.Picture.PictureName);">
+        <div class="alll">
+            <h1>Sale Product</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                        <form action="@Url.Action("sale","sale")" method="post">
+                           
+                             <label for="as">Product Category</label>
+                        <select name="CategoryID" id="as">
+                            <option disabled selected>Category secin</option>
+                               @foreach (var item in Model.Categories)
+                        {
+                           
+                                <option value="@item.Id"><a href="#">@item.Name</a></option>
+                               
+                            
+                        }
+                        </select>
+
+                                <label for="catogory">Product Name</label>
+
+                        <select name="Name" id="Product">
+                                   
+                         </select>
+                           
+                            <input type="hidden" id="barcode" name="Barcode">
+                            <label for="Cost">Qiymət</label>
+                            <input type="number" id="Cost" name="Cost">
+                            <label for="count">Say</label>
+                            <input type="number" id="count" name="Count" >
+                         <label for="tcount">Total qitmet</label>
+                        <input type="number" id="tcount" name="TotalCount">
+                            <input type="submit" value="Sale" class="submit" id="submit">
+                        <a href="@Url.Action("salelist","sale")" class="list">Show List</a>
+                            <a href="@Url.Action("index","home")" class="back">Back</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@section Scripts{
+        <script>
+        $("#as").change(function () {
+           
+            const categoryid=$(this).val();
+          
+            $.ajax({
+                
+                url: "/Sale/GetSelectedProduct",
+                data: { categoryid },
+                type:"JSON",
+                success: function (gelen) {
+                    
+                    $("#Product").html("");
+                      for(let i=0;i<gelen.length;i++){
+                        $("#count").attr({
+                            "max": gelen[0].count,
+                            "min": 0
+                        });
+                          $("#Cost").val(gelen[0].cost)
+                        $("#barcode").val(gelen[0].barcode)
+                        
+                        $("#Product").append($('<option>', {
+                    value: gelen[i].id,
+                    text: gelen[i].name
+                }));
+                                                     }
+
+                }
+            })
+    
+
+        })
+
+        $("#as").change(function () {
+
+            const id = $(this).val();
+
+            $.ajax({
+
+                url: "/Sale/GetSelectedProductPicture",
+                data: { id },
+                type: "JSON",
+                success: function (gelen) {
+                    console.log(gelen)
+                    $("#second").css({ "background-image": "url(" + gelen.pictureName + ")" });
+
+                }
+            })
+
+
+        })
+          
+
+
+        </script>
+        <script>
+        $("#Product").change(function () {
+
+          const id= $(this).val();
+
+       
+                $.ajax({
+                        url:"/Sale/GetSelectedProductCost",
+                        data:{id},
+                        type:"JSON",
+                        success:function (data){
+                            
+                          
+                        $("#Cost").val(data.cost)
+                   
+                    $("#count").attr({
+       "max" :  data.count,        
+       "min" : 0         
+    });
+                       $("#barcode").val(data.barcode)
+                        }
+                    })
+
+        })
+
+        $("#submit").mouseenter(function () {
+
+          
+
+            let qiymet = $("#Cost").val();
+            console.log(qiymet);
+             let say=$("#count").val();
+             
+            
+             let sum=say*qiymet;
+                     $("#tcount").val(sum);
+        
+        
+        
+        })
+
+
+        </script>
+        
+}

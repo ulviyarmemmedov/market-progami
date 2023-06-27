@@ -1,0 +1,44 @@
+﻿@using revanelxan.VM;
+
+@model AddListVm;
+<a href="@Url.Action("add","add")" class="btn btn-info">Back</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Category</th>
+            <th scope="col">Barcode</th>
+            <th scope="col">Qiymət</th>
+            <th scope="col">Say</th>
+            @if (ViewBag.rol == "admin")
+            {
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            }
+
+
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model.Products)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.Name</td>
+                <td>@item.Category</td>
+                <td>@item.Barcode</td>
+
+                <td>@item.Cost</td>
+                <td>@item.Count</td>
+                @if (ViewBag.rol == "admin")
+                {
+                    <td><a href="@Url.Action("addupdate" ,"Add", new{id=item.Id})" class="btn btn-info">Update</a></td>
+                    <td><a href="@Url.Action("Adddelete" ,"Add", new{id=item.Id})" class="btn btn-danger">Delete</a></td>
+                }
+               
+            </tr>
+        }
+       
+    </tbody>
+</table>

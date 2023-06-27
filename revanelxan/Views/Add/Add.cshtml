@@ -1,0 +1,47 @@
+﻿@using revanelxan.VM;
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model AddVm;
+@section css{
+    <link rel="stylesheet" href="~/front/css/Add.css">
+}
+<div class="second" style="background-image: url(@Model.Picture.PictureName);">
+    <div class="alll">
+        <h1>Add Product</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="@Url.Action("Add","Add")" method="post">
+                        <label for="name">Product Name</label>
+                        <input type="text" id="name" asp-for="@Model.Product.Name">
+                        <label for="catogory">Product Category</label>
+                     
+                            <select  id="catogory" asp-for="@Model.Product.CategoryID">
+                                @foreach (var item in Model.Categories)
+                                {
+                                          
+                                    <option value="@item.Id">@item.Name</option>
+                          
+                                }
+                        </select>
+                       
+                        <label for="Barcode">Barcode</label>
+                        <input type="number" id="Barcode " asp-for="@Model.Product.Barcode">
+                        <label for="Cost">Qiymət</label>
+                        <input type="number" id="Cost" asp-for="@Model.Product.Cost">
+                        <label for="count">Say</label>
+                        <input type="number" id="count" asp-for="@Model.Product.Count">
+                         <label for="count">EndTime</label>
+                        <input type="date" id="count" asp-for="@Model.Product.EndTime">
+                        <input type="submit" value="Add" class="submit">
+                        <a href="@Url.Action("addlist","add")" class="list">Show List</a>
+                        <a href="@Url.Action("index","home")" class="back">Back</a>
+                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

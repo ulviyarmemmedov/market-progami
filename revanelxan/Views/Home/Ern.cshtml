@@ -1,0 +1,43 @@
+﻿@using revanelxan.VM;
+
+@model SaleListVm;
+<a href="@Url.Action("index","home")" class="btn btn-info">Back</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Category</th>
+            <th scope="col">Barcode</th>
+            <th scope="col">Qiymət</th>
+            <th scope="col">Say</th>
+            <th scope="col">TotalCount</th>
+            <th scope="col">SaleDate</th>
+
+
+           
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.products)
+        {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.Name</td>
+                    <td>@item.Category</td>
+                    <td>@item.Barcode</td>
+
+                    <td>@item.Cost</td>
+
+                    <td>@item.Count</td>
+                         <td>@item.TotalCount</td>
+                    <td>@item.SaleDate</td>
+
+                    
+                </tr>
+        }
+
+    </tbody>
+</table>
